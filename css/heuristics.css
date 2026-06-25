@@ -1,0 +1,1719 @@
+/* heuristics.css - Styles for all 10 interactive mobile simulations */
+
+/* ----------------------------------------------------
+   1. Grab Simulator (Visibility of System Status)
+   ---------------------------------------------------- */
+#screen-grab {
+    background-color: #f8fafc;
+}
+
+.grab-app-bar {
+    background-color: #ffffff;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.grab-back {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.grab-title {
+    font-family: var(--font-thai);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.grab-map-area {
+    flex-grow: 1;
+    background-color: #e2e8f0;
+    background-image: 
+        radial-gradient(#cbd5e1 2px, transparent 2px), 
+        radial-gradient(#cbd5e1 2px, transparent 2px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.grab-driver-car {
+    position: absolute;
+    top: 70px;
+    left: 60px;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: transform 3.5s cubic-bezier(0.25, 1, 0.5, 1), top 3.5s cubic-bezier(0.25, 1, 0.5, 1), left 3.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.grab-user-dot {
+    position: absolute;
+    top: 230px;
+    left: 140px;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+.grab-route-path {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.grab-status-panel {
+    background-color: #ffffff;
+    padding: 1rem 1rem 24px 1rem;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid #e2e8f0;
+    z-index: 20;
+}
+
+.grab-status-header {
+    font-family: var(--font-thai);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    min-height: 20px;
+}
+
+.grab-btn-primary {
+    width: 100%;
+    background-color: #00b14f; /* Grab green */
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-family: var(--font-thai);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 177, 79, 0.2);
+}
+
+.grab-btn-primary:hover {
+    background-color: #009643;
+}
+
+.grab-pulse-ring {
+    border: 3px solid #00b14f;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: 140px;
+    top: 230px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.grab-pulse-ring.active {
+    animation: grab-pulse 1.5s ease-out infinite;
+}
+
+/* Grab Circular Loading Spinner */
+.grab-loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #00b14f;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: grab-spin 0.8s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+@keyframes grab-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@keyframes grab-pulse {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes grab-car-move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+.grab-driver-car.moving {
+    left: 0 !important;
+    top: 0 !important;
+    offset-path: path('M 60 70 L 150 110 L 140 240');
+    offset-rotate: auto 180deg;
+    animation: grab-car-move 4s linear forwards;
+    transition: none !important;
+}
+
+/* Shake animation for input/error feedback */
+@keyframes phone-shake {
+    0%, 100% { transform: translateX(0); }
+    15%, 45%, 75% { transform: translateX(-8px); }
+    30%, 60% { transform: translateX(8px); }
+}
+
+.shake-error {
+    animation: phone-shake 0.4s ease-in-out;
+}
+
+/* ----------------------------------------------------
+   2. Settings Switch Simulator (Match System & Real World)
+   ---------------------------------------------------- */
+#screen-match {
+    background-color: #f8fafc;
+}
+
+.settings-app-bar {
+    height: 44px;
+    background-color: white;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: var(--font-thai);
+}
+
+.settings-app-bar h4 {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.9rem;
+}
+
+.settings-list {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-thai);
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    background-color: white;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.settings-info {
+    font-size: 0.85rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+/* Good UI sliding toggle switch styles */
+.switch-container {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background-color: #cbd5e1;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.switch-container.active {
+    background-color: #22c55e;
+}
+
+.switch-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.switch-container.active .switch-handle {
+    transform: translateX(20px);
+}
+
+/* Bad UI switch input styling */
+.settings-bad-input {
+    width: 80px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    text-align: center;
+    font-family: var(--font-thai);
+    outline: none;
+    color: #0f172a;
+}
+
+.settings-bad-input:focus {
+    border-color: #4f46e5;
+}
+
+.settings-footer {
+    padding: 1rem 1rem 24px 1rem;
+    margin-top: auto;
+}
+
+.settings-btn-save {
+    width: 100%;
+    background-color: #0f172a;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-thai);
+    cursor: pointer;
+}
+
+/* Complete Dark Mode styling for Settings screen */
+#screen-match.dark-status {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+}
+
+#screen-match.dark-status .settings-app-bar {
+    background-color: #1e293b !important;
+    border-bottom: 1px solid #334155 !important;
+}
+
+#screen-match.dark-status .settings-app-bar h4 {
+    color: #ffffff !important;
+}
+
+#screen-match.dark-status .settings-list {
+    background-color: #0f172a !important;
+}
+
+#screen-match.dark-status .settings-item {
+    background-color: #1e293b !important;
+    border-bottom: 1px solid #334155 !important;
+}
+
+#screen-match.dark-status .settings-info {
+    color: #e2e8f0 !important;
+}
+
+#screen-match.dark-status .settings-bad-input {
+    background-color: #334155 !important;
+    border-color: #475569 !important;
+    color: #ffffff !important;
+}
+
+
+/* ----------------------------------------------------
+   3. Gmail Simulator (User Control & Freedom)
+   ---------------------------------------------------- */
+#screen-gmail {
+    background-color: #ffffff;
+}
+
+.gmail-app-bar {
+    height: 44px;
+    background-color: #ffffff;
+    margin: 10px 10px 10px 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem;
+    gap: 0.75rem;
+}
+
+.gmail-menu-burger {
+    font-size: 1.1rem;
+    color: #5f6368;
+    cursor: pointer;
+}
+
+.gmail-search {
+    flex-grow: 1;
+    color: #5f6368;
+    font-size: 0.8rem;
+    font-family: var(--font-thai);
+}
+
+.gmail-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&auto=format&fit=crop&q=60');
+    background-size: cover;
+}
+
+.gmail-inbox-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 24px;
+}
+
+.gmail-email-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-family: var(--font-thai);
+    transition: background-color 0.2s, transform 0.2s, opacity 0.2s;
+    position: relative;
+}
+
+.gmail-item-left {
+    display: flex;
+    gap: 0.75rem;
+    flex-grow: 1;
+}
+
+.gmail-sender-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.gmail-email-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 180px;
+}
+
+.gmail-sender {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1e293b;
+}
+
+.gmail-subject {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #334155;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gmail-preview {
+    font-size: 0.7rem;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gmail-delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.gmail-email-item:hover .gmail-delete-btn {
+    opacity: 1;
+}
+
+.gmail-delete-btn:hover {
+    transform: scale(1.1);
+}
+
+.gmail-undo-toast {
+    position: absolute;
+    bottom: 28px;
+    left: 10px;
+    right: 10px;
+    background-color: #323232;
+    color: #ffffff;
+    padding: 0.65rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-family: var(--font-thai);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 30;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+}
+
+.gmail-undo-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.gmail-undo-btn {
+    background: none;
+    border: none;
+    color: #a8c7fa;
+    font-weight: 700;
+    font-family: var(--font-thai);
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------
+   4. E-Commerce Cart Simulator (Consistency & Standards)
+   ---------------------------------------------------- */
+#screen-ecommerce {
+    background-color: #f8fafc;
+}
+
+.eco-app-bar {
+    height: 44px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-family: var(--font-thai);
+}
+
+.eco-back {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.eco-nav-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.eco-cart-icon {
+    font-size: 1.1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.eco-cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: #f97316;
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 10px;
+}
+
+.eco-product-details {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-family: var(--font-thai);
+}
+
+.eco-prod-image {
+    width: 100%;
+    height: 140px;
+    background-color: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+}
+
+.eco-prod-info h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.eco-prod-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #f97316;
+}
+
+.eco-prod-info p {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+}
+
+/* Bottom Bars */
+.eco-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 68px;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 14px 1rem;
+    gap: 0.75rem;
+    z-index: 20;
+    box-sizing: border-box;
+}
+
+.eco-btn-primary-full {
+    width: 100%;
+    background: linear-gradient(90deg, #ff8c00, #f97316);
+    color: white;
+    border: none;
+    height: 36px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: var(--font-thai);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.eco-btn-primary-full:hover {
+    background: linear-gradient(90deg, #f97316, #ea580c);
+}
+
+.eco-btn-bad-placed {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #e2e8f0;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    font-family: var(--font-thai);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 15;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.eco-btn-bad-placed:hover {
+    background-color: #cbd5e1;
+}
+
+
+.eco-confusing-ui {
+    background-color: white;
+    border-top: 1px solid #cbd5e1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 0.75rem 24px 0.75rem;
+    z-index: 20;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: var(--font-thai);
+    box-sizing: border-box;
+}
+
+.eco-bad-cart-box {
+    width: 100%;
+}
+
+.eco-bad-cart-btn {
+    background-color: #e2e8f0;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* ----------------------------------------------------
+   5. Sign Up Simulator (Error Prevention)
+   ---------------------------------------------------- */
+#screen-register {
+    background-color: #ffffff;
+}
+
+.reg-app-bar {
+    height: 44px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: var(--font-thai);
+}
+
+.reg-app-bar h4 {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #0f172a;
+}
+
+.reg-form {
+    padding: 1.25rem 1rem 24px 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-family: var(--font-thai);
+    flex-grow: 1;
+}
+
+.reg-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.reg-field label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.reg-input {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #f8fafc;
+}
+
+.reg-input:focus {
+    border-color: #4f46e5;
+    background-color: #ffffff;
+}
+
+.reg-validation-checklists {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background-color: #f8fafc;
+    padding: 0.65rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.reg-check-item {
+    font-size: 0.7rem;
+    color: #ef4444; /* default red */
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.reg-check-item.valid {
+    color: #22c55e;
+}
+
+.reg-error-box {
+    background-color: #fef2f2;
+    border: 1px solid #fca5a5;
+    padding: 0.65rem;
+    border-radius: 6px;
+    color: #991b1b;
+    font-size: 0.7rem;
+    line-height: 1.4;
+}
+
+.reg-submit-btn {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+    margin-top: auto;
+}
+
+.reg-submit-btn:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* ----------------------------------------------------
+   6. Netflix Simulator (Recognition vs Recall)
+   ---------------------------------------------------- */
+#screen-netflix {
+    background-color: #111111;
+}
+
+.nf-app-bar {
+    height: 44px;
+    background-color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 1px solid #222;
+}
+
+.nf-logo {
+    color: #e50914;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+}
+
+.nf-search-trigger {
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: white;
+    background-color: #222;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.nf-screen-content {
+    padding: 1rem 1rem 24px 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    font-family: var(--font-thai);
+}
+
+.nf-billboard {
+    height: 120px;
+    background-image: linear-gradient(to top, #111 0%, rgba(17, 17, 17, 0.4) 60%, rgba(17, 17, 17, 0) 100%), url('https://images.unsplash.com/photo-1574375927938-d5a98e8edd85?w=500&auto=format&fit=crop&q=60');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #333;
+}
+
+.nf-billboard-tag {
+    background-color: #e50914;
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 2px 4px;
+    border-radius: 2px;
+    align-self: flex-start;
+    margin-bottom: 0.25rem;
+}
+
+.nf-billboard h3 {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.nf-section-title {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.nf-movie-list {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.nf-movie-card {
+    width: 140px;
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #2a2a2a;
+}
+
+.nf-movie-thumb {
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nf-play-icon {
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid white;
+}
+
+.nf-progress-container {
+    height: 3px;
+    background-color: #555555;
+    width: 100%;
+}
+
+.nf-progress-bar {
+    height: 100%;
+    background-color: #e50914;
+}
+
+.nf-movie-info {
+    padding: 0.4rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.nf-movie-info span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nf-movie-info small {
+    font-size: 0.6rem;
+    color: #aaaaaa;
+    margin-top: 2px;
+}
+
+/* Search Screen */
+.nf-search-box {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    border-radius: 4px;
+    padding: 0.4rem 0.75rem;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.nf-search-input {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.75rem;
+    outline: none;
+}
+
+.nf-search-close {
+    font-size: 1.25rem;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.nf-recent-searches {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nf-recent-item {
+    background-color: #1e1e1e;
+    border: 1px solid #2a2a2a;
+    padding: 0.65rem 0.85rem;
+    border-radius: 4px;
+    color: #e2e8f0;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nf-recent-item:hover {
+    background-color: #2a2a2a;
+}
+
+/* ----------------------------------------------------
+   7. Instagram Simulator (Flexibility & Efficiency)
+   ---------------------------------------------------- */
+#screen-instagram {
+    background-color: #ffffff;
+}
+
+.ig-app-bar {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 1px solid #efefef;
+}
+
+.ig-logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+.ig-direct {
+    font-size: 1rem;
+}
+
+.ig-post {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-thai);
+}
+
+.ig-post-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+}
+
+.ig-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60');
+    background-size: cover;
+    border: 1px solid #dbdbdb;
+}
+
+.ig-username {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #262626;
+}
+
+.ig-post-image {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background-color: #fafafa;
+}
+
+.ig-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ig-heart-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 4rem;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0;
+}
+
+@keyframes heart-beat {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    15% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+    30% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.9; }
+    80% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+}
+
+.ig-post-actions {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.ig-action-btn {
+    background: none;
+    border: none;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+.ig-post-info {
+    padding: 0 0.75rem;
+}
+
+.ig-post-info strong {
+    font-size: 0.75rem;
+    color: #262626;
+}
+
+.ig-post-info p {
+    font-size: 0.75rem;
+    margin-top: 0.15rem;
+    line-height: 1.3;
+}
+
+.ig-post-info p strong {
+    margin-right: 0.35rem;
+}
+
+.ig-instruction-tag {
+    background-color: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+    padding: 0.6rem 0.6rem 24px 0.6rem;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-top: auto;
+    font-family: var(--font-thai);
+}
+
+/* ----------------------------------------------------
+   8. Apple Music Simulator (Aesthetic & Minimalist)
+   ---------------------------------------------------- */
+#screen-music {
+    background-color: #ffffff;
+}
+
+.mu-app-bar {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    font-family: var(--font-thai);
+}
+
+.mu-down {
+    font-size: 1rem;
+    color: #ff2d55; /* Apple Music Red */
+}
+
+.mu-playing-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.mu-more {
+    font-size: 1rem;
+    color: #ff2d55;
+    cursor: pointer;
+}
+
+.mu-player-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 24px 1rem;
+    overflow-y: auto;
+}
+
+/* Minimalist view (Default / Good UI) */
+.mu-view-minimal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 1.5rem;
+    font-family: var(--font-thai);
+    background: linear-gradient(180deg, #fff5f5 0%, #fff 100%);
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.mu-album-art {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(255, 94, 98, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.mu-song-meta {
+    text-align: center;
+}
+
+.mu-song-meta h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1c1c1e;
+}
+
+.mu-song-meta p {
+    font-size: 0.8rem;
+    color: #8e8e93;
+    margin-top: 0.25rem;
+}
+
+.mu-scrubber-container {
+    width: 100%;
+}
+
+.mu-scrubber-bar {
+    height: 3px;
+    background-color: #e5e5ea;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.mu-scrubber-progress {
+    height: 100%;
+    background-color: #8e8e93;
+    border-radius: 2px;
+}
+
+.mu-time-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #8e8e93;
+    margin-top: 0.4rem;
+}
+
+.mu-controls {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mu-ctrl-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #1c1c1e;
+}
+
+.mu-ctrl-btn.play {
+    font-size: 2rem;
+    transform: scale(1.1);
+}
+
+/* Cluttered view (Bad UI) - Boxy, tiny, zero white space */
+.mu-view-cluttered {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: var(--font-thai);
+    background-color: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 4px;
+    font-size: 9px !important;
+    line-height: 1.25;
+}
+
+.mu-clut-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.mu-tiny-art {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    background: #e2e8f0;
+    padding: 3px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    color: #334155;
+}
+
+.mu-tiny-art span {
+    font-size: 8px;
+    color: #64748b;
+    font-weight: 400;
+}
+
+.mu-clut-text {
+    background-color: #ffffff;
+    border: 1px dashed #cbd5e1;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.mu-clut-text h4 {
+    font-size: 9px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.mu-clut-text small {
+    font-size: 7px;
+    color: #64748b;
+    display: block;
+    margin-top: 1px;
+}
+
+.mu-lyrics-preview {
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 8px;
+    line-height: 1.3;
+    height: 40px;
+    overflow-y: scroll;
+    color: #78350f;
+}
+
+.mu-share-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    padding: 3px;
+    border-radius: 4px;
+    font-size: 8px;
+}
+
+.mu-tiny-btn {
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    font-size: 7px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #334155;
+    font-weight: 600;
+}
+
+.mu-comments-section {
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    padding: 4px;
+    border-radius: 4px;
+    max-height: 40px;
+    overflow-y: auto;
+    font-size: 8px;
+}
+
+.mu-comments-section p {
+    color: #64748b;
+    font-style: italic;
+    margin-top: 1px;
+    font-size: 7px;
+}
+
+.mu-clut-controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 2px;
+}
+
+.mu-clut-controls .mu-tiny-btn {
+    text-align: center;
+}
+
+
+/* ----------------------------------------------------
+   9. Shopee Coupon Simulator (Error Diagnosis & Recovery)
+   ---------------------------------------------------- */
+#screen-coupon {
+    background-color: #f8fafc;
+}
+
+.cp-app-bar {
+    height: 44px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: var(--font-thai);
+}
+
+.cp-back {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: #f97316;
+    cursor: pointer;
+}
+
+.cp-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.cp-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+    font-family: var(--font-thai);
+}
+
+.cp-summary-price {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.cp-summary-price span {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.cp-summary-price strong {
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.cp-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cp-input {
+    flex-grow: 1;
+    border: 1px solid #cbd5e1;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    outline: none;
+}
+
+.cp-apply-btn {
+    background-color: #f97316; /* Shopee Orange */
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cp-alert-box {
+    background-color: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 8px;
+    padding: 0.65rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.cp-alert-icon {
+    font-size: 0.9rem;
+}
+
+.cp-alert-msg {
+    font-size: 0.65rem;
+    color: #991b1b;
+    line-height: 1.4;
+}
+
+.cp-alert-suggest-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.6rem;
+    margin-top: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-thai);
+}
+
+.cp-checkout-info {
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-top: auto;
+}
+
+.cp-price-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-bottom: 0.35rem;
+}
+
+.cp-price-row.total {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0;
+    margin-top: 0.35rem;
+}
+
+.cp-val-discount-active {
+    color: #22c55e !important;
+    font-weight: 700;
+}
+
+.cp-bottom-action {
+    background-color: white;
+    border-top: 1px solid #e2e8f0;
+    padding: 0.75rem 0.75rem 24px 0.75rem;
+}
+
+.cp-btn-checkout {
+    width: 100%;
+    background-color: #f97316;
+    color: white;
+    border: none;
+    padding: 0.65rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-thai);
+}
+
+/* ----------------------------------------------------
+   10. Duolingo Simulator (Help & Documentation)
+   ---------------------------------------------------- */
+#screen-duolingo {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.duo-header {
+    height: 44px;
+    border-bottom: 2px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: var(--font-thai);
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.duo-crown {
+    color: #ffc800;
+}
+.duo-streak {
+    color: #ff9600;
+}
+.duo-hearts {
+    color: #ff4b4b;
+}
+
+/* Dense Help wall of text style (Bad UI) */
+.duo-help-bad-page {
+    padding: 1rem 1rem 24px 1rem;
+    font-family: var(--font-thai);
+    font-size: 0.7rem;
+    color: #475569;
+    line-height: 1.45;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.duo-help-bad-page h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.25rem;
+}
+
+.duo-help-bad-page p {
+    margin-bottom: 0.5rem;
+}
+
+/* Good UI elements */
+.duo-map {
+    flex-grow: 1;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    position: relative;
+}
+
+.duo-node {
+    width: 65px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 6px 0 #cbd5e1;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.duo-node:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #cbd5e1;
+}
+
+.duo-node-icon {
+    font-size: 1.5rem;
+}
+
+.duo-node-label {
+    position: absolute;
+    bottom: -18px;
+    background-color: #ffffff;
+    border: 2px solid #e5e5e5;
+    padding: 1px 6px;
+    border-radius: 100px;
+    font-size: 0.55rem;
+    font-family: var(--font-thai);
+    font-weight: 700;
+    white-space: nowrap;
+    color: #4b4b4b;
+}
+
+.duo-node.active {
+    background-color: #58cc02; /* Duolingo Active Green */
+    box-shadow: 0 6px 0 #3b9300;
+    color: white;
+}
+.duo-node.active:active {
+    box-shadow: 0 2px 0 #3b9300;
+}
+
+.duo-node.locked {
+    background-color: #e5e5e5;
+    box-shadow: 0 6px 0 #afafaf;
+    color: #afafaf;
+}
+.duo-node.locked:active {
+    box-shadow: 0 2px 0 #afafaf;
+}
+
+.duo-btn-container {
+    padding: 0.75rem 0.75rem 24px 0.75rem;
+    background-color: white;
+    border-top: 2px solid #e5e5e5;
+}
+
+.duo-btn-tour {
+    width: 100%;
+    background-color: #1cb0f6; /* Duolingo Blue */
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #0087ca;
+    font-family: var(--font-thai);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.duo-btn-tour:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #0087ca;
+}
+
+/* Tooltip Overlay system */
+.duo-tooltip-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 1rem 24px 1rem;
+    box-sizing: border-box;
+}
+
+.duo-owl-character {
+    font-size: 3.5rem;
+    align-self: flex-start;
+    margin-left: 1rem;
+    margin-bottom: -5px;
+    z-index: 52;
+}
+
+.duo-tooltip-bubble {
+    background-color: white;
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 51;
+    border: 2px solid #e5e5e5;
+    font-family: var(--font-thai);
+}
+
+.duo-tooltip-text {
+    font-size: 0.75rem;
+    color: #3c3c3c;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.duo-tooltip-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.duo-tooltip-steps {
+    font-size: 0.65rem;
+    color: #afafaf;
+    font-weight: 700;
+}
+
+.duo-tooltip-next-btn {
+    background-color: #58cc02;
+    color: white;
+    border: none;
+    padding: 0.35rem 1rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    box-shadow: 0 3px 0 #3b9300;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.duo-tooltip-next-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #3b9300;
+}

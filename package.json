@@ -1,0 +1,17 @@
+{
+  "name": "10-usability-heuristics",
+  "version": "1.0.0",
+  "description": "10 Usability Heuristics learning website for UX/UI interns",
+  "scripts": {
+    "dev": "npx -y http-server . -p 3000"
+  },
+  "keywords": [
+    "usability",
+    "heuristics",
+    "ux",
+    "ui",
+    "education"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}

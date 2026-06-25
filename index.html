@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Usability Heuristics for UX/UI Design - แบบเปรียบเทียบ Good & Bad UI</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/phone-mock.css">
+    <link rel="stylesheet" href="css/heuristics.css">
+</head>
+<body>
+    <!-- Top Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- App Container -->
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon">H</div>
+                <div class="logo-text">
+                    <h1>Usability</h1>
+                    <span>10 Heuristics (Good vs Bad)</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active" data-target="heuristic-1">
+                        <span class="nav-num">01</span> <span class="nav-title">Visibility of Status</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-2">
+                        <span class="nav-num">02</span> <span class="nav-title">Match System & Real World</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-3">
+                        <span class="nav-num">03</span> <span class="nav-title">User Control & Freedom</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-4">
+                        <span class="nav-num">04</span> <span class="nav-title">Consistency & Standards</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-5">
+                        <span class="nav-num">05</span> <span class="nav-title">Error Prevention</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-6">
+                        <span class="nav-num">06</span> <span class="nav-title">Recognition vs Recall</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-7">
+                        <span class="nav-num">07</span> <span class="nav-title">Flexibility & Efficiency</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-8">
+                        <span class="nav-num">08</span> <span class="nav-title">Aesthetic & Minimalist</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-9">
+                        <span class="nav-num">09</span> <span class="nav-title">Recognize & Recover Errors</span>
+                    </li>
+                    <li class="nav-item" data-target="heuristic-10">
+                        <span class="nav-num">10</span> <span class="nav-title">Help & Documentation</span>
+                    </li>
+                    <li class="nav-divider"></li>
+                    <li class="nav-item nav-item-conclusion" data-target="conclusion">
+                        <span class="nav-num">✦</span> <span class="nav-title">Conclusion</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>Interactive Heuristics Simulator</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Hero Header -->
+            <header class="hero-section">
+                <div class="hero-badge">UX/UI Guideline</div>
+                <h1 class="hero-title">10 Usability Heuristics</h1>
+                <p class="hero-subtitle">
+                    <strong>10 Usability Heuristics</strong> คือ กฎ 10 ข้อของการออกแบบ UX/UI เพื่อให้ระบบใช้งานง่าย เข้าใจได้ทันที และตอบสนองผู้ใช้ได้อย่างเป็นธรรมชาติที่สุด
+                    <span style="font-size: 0.95rem; opacity: 0.8; display: block; margin-top: 0.6rem;">💡 อธิบายกระชับ พร้อมแอปจำลองเปรียบเทียบ Good UI และ Bad UI ในชีวิตจริง</span>
+                </p>
+                <div class="scroll-down-indicator">
+                    <span>เลื่อนลงด้านล่าง</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                </div>
+            </header>
+
+            <!-- Heuristic Section 1 -->
+            <section id="heuristic-1" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #1</span>
+                    <h2 class="section-title">Visibility of System Status</h2>
+                    <h3 class="thai-title">การแสดงสถานะของระบบ</h3>
+                    <p class="explanation">ระบบต้องสื่อสารบอกให้ผู้ใช้ทราบสถานะปัจจุบันการทำงานทันทีอย่างเหมาะสม เพื่อให้สามารถตัดสินใจได้ถูกต้องและป้องกันความสับสน</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>แสดงตัวโหลด (Spinner) หรือความคืบหน้าให้ผู้ใช้ทราบเมื่อมีการประมวลผลข้อมูล</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>หน้าจอนิ่งเงียบไม่มีปฏิกิริยาตอบสนองใดๆ หลังกดปุ่ม ทำให้สงสัยว่าระบบค้างหรือไม่</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Grab (ค้นหารถและคำนวณสถานะ)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-grab">
+                            <div class="grab-app-bar">
+                                <span class="grab-back">&larr;</span>
+                                <span class="grab-title">เรียกคนขับ</span>
+                            </div>
+                            <div class="grab-map-area">
+                                <div class="grab-driver-car" id="grab-car">🚗</div>
+                                <div class="grab-user-dot">📍</div>
+                                <svg class="grab-route-path" width="100%" height="100%">
+                                    <path d="M 60,70 L 150,110 L 140,240" fill="none" stroke="#22c55e" stroke-width="4" stroke-dasharray="8 6" />
+                                </svg>
+                            </div>
+                            <div class="grab-status-panel">
+                                <div class="grab-status-header" id="grab-status-text">พร้อมหาคนขับรอบตัวคุณ</div>
+                                <button class="grab-btn-primary" id="grab-btn-action">จองรถ JustGrab</button>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Good/Bad Toggle Bar -->
+                    <div class="mockup-ui-toggle" data-heuristic="grab">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 2 -->
+            <section id="heuristic-2" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #2</span>
+                    <h2 class="section-title">Match between system and the real world</h2>
+                    <h3 class="thai-title">สอดคล้องกับโลกความเป็นจริง</h3>
+                    <p class="explanation">ระบบต้องใช้ภาษา สัญลักษณ์ หรือแนวคิดที่ผู้ใช้งานคุ้นเคยในชีวิตประจำวัน หลีกเลี่ยงศัพท์เทคนิคยากๆ และจำลององค์ประกอบจากโลกความจริงมาประยุกต์ใช้</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>ใช้ปุ่มสวิตซ์ (Toggle Switch) เพื่อสื่อถึงการเลื่อนเปิด-ปิดระบบเลียนแบบปุ่มสวิตซ์ไฟจริง</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>บังคับให้ผู้ใช้กรอกข้อความ 'เปิด' หรือ 'ปิด' หรือเขียนตัวเลขโค้ด '1' / '0' ในการตั้งค่า</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Settings (การสลับเปิด-ปิดระบบ)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-match">
+                            <div class="settings-app-bar">
+                                <h4>การตั้งค่าเครื่อง</h4>
+                            </div>
+                            <div class="settings-list">
+                                <div class="settings-item">
+                                    <div class="settings-info">
+                                        <span>🛜 Wi-Fi อินเทอร์เน็ต</span>
+                                    </div>
+                                    <div class="settings-action-area" id="wifi-action-area">
+                                        <!-- Will render good or bad dynamically based on active mode -->
+                                    </div>
+                                </div>
+                                <div class="settings-item">
+                                    <div class="settings-info">
+                                        <span>🌙 โหมดกลางคืน (Dark Mode)</span>
+                                    </div>
+                                    <div class="settings-action-area" id="dark-action-area">
+                                        <!-- Will render good or bad dynamically based on active mode -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Save/Apply button (Only used in Bad UI to simulate inputs submit) -->
+                            <div class="settings-footer hidden" id="settings-footer-bad">
+                                <button class="settings-btn-save" id="settings-btn-save-bad">บันทึกตั้งค่า</button>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="match">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 3 -->
+            <section id="heuristic-3" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #3</span>
+                    <h2 class="section-title">User control and freedom</h2>
+                    <h3 class="thai-title">อิสระและการควบคุมของผู้ใช้งาน</h3>
+                    <p class="explanation">ผู้ใช้งานพร้อมทำข้อผิดพลาดได้ตลอดเวลา ระบบจึงจำเป็นต้องสร้าง "ทางออกฉุกเฉิน" เช่น การกดยกเลิกหรือปุ่มเลิกทำ (Undo) ได้อย่างง่ายดาย</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>มีปุ่มกู้คืนหรือย้อนกลับ (Undo Toast) ขึ้นมาเตือนทันทีหลังจากผู้ใช้เผลอกดปุ่มลบข้อมูล</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>ลบอีเมลแล้วหายไปเลยทันที ไม่มีปุ่มย้อนกลับหรือช่องทางคืนค่าข้อมูล</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Gmail (การลบข้อความ)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-gmail">
+                            <div class="gmail-app-bar">
+                                <div class="gmail-menu-burger">&#9776;</div>
+                                <div class="gmail-search">ค้นหาในอีเมล</div>
+                                <div class="gmail-avatar"></div>
+                            </div>
+                            <div class="gmail-inbox-list" id="gmail-inbox">
+                                <div class="gmail-email-item" id="gmail-item-1">
+                                    <div class="gmail-item-left">
+                                        <div class="gmail-sender-avatar" style="background-color: #ea4335;">P</div>
+                                        <div class="gmail-email-content">
+                                            <div class="gmail-sender">พี่นิค UX Lead</div>
+                                            <div class="gmail-subject">ส่งการบ้าน 10 Heuristics ด้วยนะ!</div>
+                                            <div class="gmail-preview">สวัสดีน้องฝึกงาน อย่าลืมเช็คหน้าเว็บ...</div>
+                                        </div>
+                                    </div>
+                                    <button class="gmail-delete-btn" title="Delete">🗑️</button>
+                                </div>
+                                <div class="gmail-email-item" id="gmail-item-2">
+                                    <div class="gmail-item-left">
+                                        <div class="gmail-sender-avatar" style="background-color: #4285f4;">S</div>
+                                        <div class="gmail-email-content">
+                                            <div class="gmail-sender">Spotify</div>
+                                            <div class="gmail-subject">เพลงใหม่ที่คุณน่าจะชอบสัปดาห์นี้</div>
+                                            <div class="gmail-preview">มาฟังเพลงฮิตติดกระแสในช่วงนี้กันเลย...</div>
+                                        </div>
+                                    </div>
+                                    <button class="gmail-delete-btn" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+                            <div class="gmail-undo-toast" id="gmail-toast">
+                                <span>ย้าย 1 รายการไปที่ถังขยะแล้ว</span>
+                                <button class="gmail-undo-btn" id="gmail-btn-undo">เลิกทำ (Undo)</button>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="gmail">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 4 -->
+            <section id="heuristic-4" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #4</span>
+                    <h2 class="section-title">Consistency and standards</h2>
+                    <h3 class="thai-title">ความสม่ำเสมอและมีมาตรฐานเดียวกัน</h3>
+                    <p class="explanation">ระบบต้องจัดวางข้อมูล โครงสร้างปุ่ม และตำแหน่งไอคอนต่างๆ ให้สม่ำเสมอเป็นมาตรฐานตามความคุ้นเคยของผู้ใช้งานโดยไม่ต้องเรียนรู้ใหม่</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>จัดตำแหน่งไอคอนตะกร้าสินค้าไว้มุมขวาบนของแอป ซึ่งสอดคล้องกันตามปกติ</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>นำตะกร้าไปซ่อนที่อื่น หรือย้ายมามุมซ้ายล่างแล้วระบุด้วยลิงก์ข้อความทำให้สับสน</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: E-Commerce (ตำแหน่งของตะกร้าสินค้า)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-ecommerce">
+                            <div class="eco-app-bar">
+                                <span class="eco-back">&larr;</span>
+                                <span class="eco-nav-title">รายละเอียดสินค้า</span>
+                                <!-- Top-Right Cart Icon: Visible in Good UI -->
+                                <span class="eco-cart-icon" id="eco-top-cart">🛒 <span class="eco-cart-badge">1</span></span>
+                            </div>
+                            <div class="eco-product-details">
+                                <div class="eco-prod-image" style="position: relative;">
+                                    🎧
+                                    <!-- Weirdly placed Add to cart button for Bad UI -->
+                                    <button class="eco-btn-bad-placed hidden" id="eco-btn-add-bad">ใส่ตะกร้า</button>
+                                </div>
+                                <div class="eco-prod-info">
+                                    <h3>หูฟังมินิมอลไร้สาย ANC</h3>
+                                    <div class="eco-prod-price">฿2,490</div>
+                                    <p>หูฟังตัดเสียงรบกวนภายนอก ดีไซน์มินิมอล น้ำหนักเบา สวมใส่สบาย</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Bad UI Bottom Action (Shows cart icon at bottom left instead of standard top right) -->
+                            <div class="eco-confusing-ui" id="eco-bottom-confusing">
+                                <div class="eco-bad-cart-box">
+                                    <span class="eco-bad-cart-btn" id="eco-bad-cart-btn-trigger">🛒 ถุงสินค้า (มี 1 ชิ้น)</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard UI Bottom Action -->
+                            <div class="eco-bottom-bar" id="eco-bottom-standard">
+                                <button class="eco-btn-primary-full" id="eco-btn-add-standard">ใส่ตะกร้า</button>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="ecommerce">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 5 -->
+            <section id="heuristic-5" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #5</span>
+                    <h2 class="section-title">Error prevention</h2>
+                    <h3 class="thai-title">การป้องกันข้อผิดพลาดล่วงหน้า</h3>
+                    <p class="explanation">การออกแบบเพื่อป้องกันไม่ให้เกิดความผิดพลาดตั้งแต่แรกนั้น ดีกว่าการสร้างหน้ารายงานข้อความแจ้งความผิดพลาดที่เกิดขึ้นในภายหลัง</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>แสดง Checklist ตรวจสอบเงื่อนไขรหัสผ่านทันทีระหว่างพิมพ์เพื่อความถูกต้อง</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>ไม่มีข้อแนะนำ ปล่อยให้ผู้ใช้กดส่งรหัสผ่าน แล้วค่อยแสดงกล่องสีแดงแจ้งว่าพิมพ์ผิดเกณฑ์</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Sign Up (เช็คการตั้งรหัสผ่าน)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-register">
+                            <div class="reg-app-bar">
+                                <h4>สมัครสมาชิกใหม่</h4>
+                            </div>
+                            <div class="reg-form">
+                                <div class="reg-field">
+                                    <label>ชื่อผู้ใช้งาน</label>
+                                    <input type="text" class="reg-input" id="reg-input-username" value="UX_Intern_2026">
+                                </div>
+                                <div class="reg-field">
+                                    <label>รหัสผ่าน</label>
+                                    <input type="password" class="reg-input" id="reg-input-password" placeholder="ตั้งรหัสผ่านของคุณ">
+                                </div>
+                                
+                                <!-- Good UI: Live validation checklists -->
+                                <div class="reg-validation-checklists" id="reg-live-checks">
+                                    <div class="reg-check-item" id="check-len">❌ ยาวอย่างน้อย 8 ตัวอักษร</div>
+                                    <div class="reg-check-item" id="check-num">❌ มีตัวเลขอย่างน้อย 1 ตัว</div>
+                                </div>
+
+                                <!-- Bad UI: Error box show after submit -->
+                                <div class="reg-error-box hidden" id="reg-error-after-submit">
+                                    ❌ การสมัครสมาชิกล้มเหลว: รหัสผ่านของคุณไม่ตรงตามเงื่อนไข (ต้องมี 8 ตัวอักษรและมีตัวเลข)
+                                </div>
+
+                                <button class="reg-submit-btn" id="reg-btn-submit" disabled>ลงทะเบียน</button>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="register">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 6 -->
+            <section id="heuristic-6" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #6</span>
+                    <h2 class="section-title">Recognition rather than recall</h2>
+                    <h3 class="thai-title">ช่วยให้จดจำง่ายกว่าต้องนั่งนึกให้ออก</h3>
+                    <p class="explanation">ลดภาระการจดจำของผู้ใช้ โดยการแสดงตัวเลือก เมนู ข้อมูลประวัติการใช้งาน หรือการค้นหาล่าสุดให้เห็นในจุดที่สังเกตง่าย</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>แสดงคำค้นหาล่าสุดเพื่อให้ผู้ใช้แตะเพื่อใช้งานได้ทันทีโดยไม่ต้องพิมพ์ใหม่</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>ช่องค้นหาว่างเปล่าและบังคับให้ผู้ใช้ต้องนึกคำค้นหาเดิมและพิมพ์ใหม่ทั้งหมด</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Netflix (หน้าต่างประวัติการค้นหา)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen dark-status" id="screen-netflix">
+                            <div class="nf-app-bar">
+                                <span class="nf-logo">NETFLIX</span>
+                                <span class="nf-search-trigger" id="nf-btn-toggle-search">🔍 ค้นหา</span>
+                            </div>
+                            
+                            <!-- Main Home Screen (Active by default) -->
+                            <div class="nf-screen-content" id="nf-main-home">
+                                <div class="nf-billboard">
+                                    <div class="nf-billboard-tag">กำลังฮิตอันดับ 1</div>
+                                    <h3>Stranger Things ซีซั่น 5</h3>
+                                </div>
+                                <!-- Continue Watching parent container -->
+                                <div class="nf-continue-section" id="nf-continue-section">
+                                    <div class="nf-section-title">รับชมต่อสำหรับคุณ</div>
+                                    <div class="nf-movie-list">
+                                        <div class="nf-movie-card" id="nf-watch-card">
+                                            <div class="nf-movie-thumb" style="background-image: url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=300&auto=format&fit=crop&q=60')">
+                                                <div class="nf-play-icon">▶️</div>
+                                            </div>
+                                            <div class="nf-progress-container">
+                                                <div class="nf-progress-bar" style="width: 75%;"></div>
+                                            </div>
+                                            <div class="nf-movie-info">
+                                                <span>สควิดเกม เล่นลุ้นตาย</span>
+                                                <small>ตอนที่ 4 (นาทีที่ 38)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Search Screen -->
+                            <div class="nf-screen-content hidden" id="nf-search-page">
+                                <div class="nf-search-box">
+                                    <input type="text" class="nf-search-input" id="nf-search-input" placeholder="ค้นหาภาพยนตร์ ซีรีส์..." readonly>
+                                    <span class="nf-search-close" id="nf-btn-close-search">&times;</span>
+                                </div>
+                                
+                                <!-- Container to toggle dynamically -->
+                                <div id="nf-recent-searches-container">
+                                    <div class="nf-section-title">การค้นหาล่าสุดของคุณ</div>
+                                    <div class="nf-recent-searches">
+                                        <div class="nf-recent-item">🖤 Wednesday</div>
+                                        <div class="nf-recent-item">🏴‍☠️ One Piece Live Action</div>
+                                        <div class="nf-recent-item">🦖 Jurassic Park</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="netflix">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 7 -->
+            <section id="heuristic-7" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #7</span>
+                    <h2 class="section-title">Flexibility and efficiency of use</h2>
+                    <h3 class="thai-title">ความยืดหยุ่นและมีประสิทธิภาพ</h3>
+                    <p class="explanation">ระบบต้องรองรับผู้ใช้ใหม่และผู้ใช้เชี่ยวชาญด้วยคีย์ลัดหรือ Gestures พร้อมเปิดให้ปรับแต่งค่าด่วนตามความสะดวก เช่น ปุ่มเปลี่ยนภาษา หรือสลับโหมดหน้าจอ (Dark/Light Mode) เพื่อความรวดเร็วสูงสุด</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>มีทางลัด เช่น ดับเบิ้ลแท็บรูปภาพเพื่อถูกใจ และมีปุ่มเปลี่ยนภาษาหรือสลับธีมด่วนที่กดง่ายในคลิกเดียว</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>ไม่มีทางลัดใดๆ และซ่อนปุ่มเปลี่ยนภาษาหรือสลับธีมหน้าจอไว้ลึกหลายขั้นตอน</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Instagram (ทางลัดในการถูกใจ)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-instagram">
+                            <div class="ig-app-bar">
+                                <span class="ig-logo">Instagram</span>
+                                <span class="ig-direct">✈️</span>
+                            </div>
+                            <div class="ig-post">
+                                <div class="ig-post-header">
+                                    <div class="ig-avatar"></div>
+                                    <span class="ig-username">antigravity.design</span>
+                                </div>
+                                <div class="ig-post-image" id="ig-photo-post">
+                                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60" alt="Post">
+                                    <div class="ig-heart-overlay" id="ig-heart-pop">❤️</div>
+                                </div>
+                                <div class="ig-post-actions">
+                                    <button class="ig-action-btn" id="ig-btn-like">🤍</button>
+                                    <button class="ig-action-btn">💬</button>
+                                    <button class="ig-action-btn">✈️</button>
+                                </div>
+                                <div class="ig-post-info">
+                                    <strong id="ig-likes-count">ถูกใจ 1,420 คน</strong>
+                                    <p><strong>antigravity.design</strong> มาเรียนรู้เรื่อง UX/UI 10 Usability Heuristic ไปพร้อมๆ กันเถอะ 🚀📚</p>
+                                </div>
+                            </div>
+                            <div class="ig-instruction-tag" id="ig-hint-text">
+                                💡 ลองกดปุ่ม 🤍 หรือ ดับเบิ้ลแท็บที่รูปภาพ สองครั้ง
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="instagram">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 8 -->
+            <section id="heuristic-8" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #8</span>
+                    <h2 class="section-title">Aesthetic and minimalist design</h2>
+                    <h3 class="thai-title">การออกแบบที่สวยงามและเรียบง่าย</h3>
+                    <p class="explanation">หน้าจอควรมีเฉพาะข้อมูลที่จำเป็นเพื่อช่วยลดการบดบังของสายตา เน้นสัดส่วนความสวยงามด้วยพื้นที่ว่างที่เหมาะสม</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>เน้นปกเพลงและชื่อเพลงให้โดดเด่นสะดุดตา มีปุ่มควบคุมที่จำเป็นและดูสบายตา</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>ยัดตัวหนังสือสเปก เนื้อร้องท่อนเด่น รายละเอียดการสตรีม และปุ่มเครื่องมือทั้งหมดลงในหน้าหลัก</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Apple Music (ดีไซน์เครื่องเล่นเพลง)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-music">
+                            <div class="mu-app-bar">
+                                <span class="mu-down">&or;</span>
+                                <span class="mu-playing-title" id="mu-ui-indicator">เล่นเลย (Minimal)</span>
+                                <span class="mu-more">...</span>
+                            </div>
+
+                            <div class="mu-player-container">
+                                <!-- Minimal UI (Default) -->
+                                <div class="mu-view-minimal" id="mu-view-minimal-el">
+                                    <div class="mu-album-art">🎵</div>
+                                    <div class="mu-song-meta">
+                                        <h3>Starlight Reflection</h3>
+                                        <p>Luna & The Nebula</p>
+                                    </div>
+                                    <div class="mu-scrubber-container">
+                                        <div class="mu-scrubber-bar">
+                                            <div class="mu-scrubber-progress" style="width: 35%;"></div>
+                                        </div>
+                                        <div class="mu-time-labels">
+                                            <span>1:14</span><span>-3:02</span>
+                                        </div>
+                                    </div>
+                                    <div class="mu-controls">
+                                        <button class="mu-ctrl-btn">&larr;</button>
+                                        <button class="mu-ctrl-btn play">▶️</button>
+                                        <button class="mu-ctrl-btn">&rarr;</button>
+                                    </div>
+                                </div>
+
+                                <!-- Cluttered UI -->
+                                <div class="mu-view-cluttered hidden" id="mu-view-cluttered-el">
+                                    <div class="mu-clut-grid">
+                                        <div class="mu-tiny-art">🎵 <span>Bitrate: 320kbps (Lossless FLAC)</span></div>
+                                        <div class="mu-clut-text">
+                                            <h4>Starlight Reflection (Radio Edit 2026)</h4>
+                                            <small>Artist: Luna & The Nebula | Composer: Jane Doe | Genre: Synthwave</small>
+                                        </div>
+                                        <div class="mu-lyrics-preview">
+                                            <strong>เนื้อเพลงท่อนฮิต:</strong><br>
+                                            "Beneath the starlight we meet again..."
+                                        </div>
+                                        <div class="mu-share-panel">
+                                            <span>แชร์ด่วน:</span>
+                                            <button class="mu-tiny-btn">FB</button>
+                                            <button class="mu-tiny-btn">LINE</button>
+                                            <button class="mu-tiny-btn">IG</button>
+                                            <button class="mu-tiny-btn">X</button>
+                                        </div>
+                                        <div class="mu-comments-section">
+                                            <strong>ความเห็นแฟนเพลง (2,400):</strong>
+                                            <p>"เพลงนี้ดีมากครับ ฟังตอนขับรถดึกๆ สุดยอดเลย"</p>
+                                        </div>
+                                        <div class="mu-clut-controls">
+                                            <button class="mu-tiny-btn">วนซ้ำ</button>
+                                            <button class="mu-tiny-btn">สุ่มเพลง</button>
+                                            <button class="mu-tiny-btn">&larr;</button>
+                                            <button class="mu-tiny-btn">หยุด/เล่น</button>
+                                            <button class="mu-tiny-btn">&rarr;</button>
+                                            <button class="mu-tiny-btn">เนื้อเพลง</button>
+                                            <button class="mu-tiny-btn">ดาวน์โหลด</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="music">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 9 -->
+            <section id="heuristic-9" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #9</span>
+                    <h2 class="section-title">Help users recognize, diagnose, and recover from errors</h2>
+                    <h3 class="thai-title">การแจ้งเตือนข้อผิดพลาดและเสนอทางออก</h3>
+                    <p class="explanation">หากเกิดข้อผิดพลาดใดๆ ต้องแจ้งผู้ใช้ด้วยประโยคธรรมดาที่สุภาพ ระบุจุดบกพร่องชัดเจน และให้ปุ่มทางเลือกหรือแนวทางแก้ไขปัญหาโดยง่าย</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>บอกว่ารหัสคูปองหมดอายุ พร้อมแนะนำรหัสคูปองใหม่ที่ใช้งานได้จริงให้กดใช้ทดแทน</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>แสดงรหัสความผิดพลาดหลังบ้านเชิงลึก เช่น "API ERROR 400: BAD REQUEST" ไม่มีคำแนะนำ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Shopee (การแจ้งเตือนโค้ดคูปอง)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-coupon">
+                            <div class="cp-app-bar">
+                                <span class="cp-back">&larr;</span>
+                                <span class="cp-title">โค้ดส่วนลดของฉัน</span>
+                            </div>
+                            <div class="cp-container">
+                                <div class="cp-summary-price">
+                                    <span>ยอดรวมรถเข็น:</span>
+                                    <strong>฿590</strong>
+                                </div>
+                                <div class="cp-input-group">
+                                    <input type="text" class="cp-input" id="cp-input-code" placeholder="ใส่รหัสส่วนลดของคุณ" value="SUMMER50">
+                                    <button class="cp-apply-btn" id="cp-btn-apply">ใช้โค้ด</button>
+                                </div>
+                                
+                                <!-- Error state container -->
+                                <div class="cp-alert-box hidden" id="cp-alert-box">
+                                    <div class="cp-alert-icon">⚠️</div>
+                                    <div class="cp-alert-msg" id="cp-alert-msg"></div>
+                                </div>
+                                
+                                <div class="cp-checkout-info">
+                                    <div class="cp-price-row">
+                                        <span>ค่าสินค้า:</span><span>฿590</span>
+                                    </div>
+                                    <div class="cp-price-row">
+                                        <span>ส่วนลดโค้ด:</span><span id="cp-val-discount">-฿0</span>
+                                    </div>
+                                    <hr>
+                                    <div class="cp-price-row total">
+                                        <span>ยอดจ่ายจริง:</span><span id="cp-val-total">฿590</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cp-bottom-action">
+                                <button class="cp-btn-checkout">ชำระเงิน</button>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="coupon">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heuristic Section 10 -->
+            <section id="heuristic-10" class="heuristic-section">
+                <div class="info-panel">
+                    <span class="heuristic-number">Heuristic #10</span>
+                    <h2 class="section-title">Help and documentation</h2>
+                    <h3 class="thai-title">การมีระบบช่วยเหลือและคู่มือ</h3>
+                    <p class="explanation">การแนะนำวิธีการทำงานของแอปในลักษณะ Onboarding แนะนำแบบทีละขั้นตอน หรือมีคู่มือที่กระชับและค้นหาได้ ช่วยให้ผู้ใช้เรียนรู้และเริ่มต้นระบบได้ไว</p>
+                    
+                    <div class="do-dont-grid">
+                        <div class="card-do">
+                            <h4>✅ แบบที่ดี (Good UI)</h4>
+                            <ul>
+                                <li>มีทัวร์ไกด์สั้นๆ แนะนำการทำงานและปุ่มสำคัญทีละขั้นในการเข้าใช้งานระบบครั้งแรก</li>
+                            </ul>
+                        </div>
+                        <div class="card-dont">
+                            <h4>❌ แบบที่แย่ (Bad UI)</h4>
+                            <ul>
+                                <li>ปล่อยให้เผชิญหน้าต่างซับซ้อนตามลำพัง หรือแสดงคำแนะนำทั้งหมดเป็นตัวหนังสือยาวเหยียดในครั้งเดียว</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-panel">
+                    <div class="mockup-header-title">แอปจำลอง: Duolingo (คู่มือสอนการใช้งาน)</div>
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="screen-duolingo">
+                            <div class="duo-header">
+                                <div class="duo-crown">👑 15</div>
+                                <div class="duo-streak">🔥 3 วัน</div>
+                                <div class="duo-hearts">❤️ 5</div>
+                            </div>
+                            
+                            <!-- Help wall of text for Bad UI -->
+                            <div class="duo-help-bad-page hidden" id="duo-help-bad-wall">
+                                <h3>เอกสารคู่มือช่วยเหลือการเรียน (50 บรรทัด)</h3>
+                                <p>1. ในการเริ่มทำด่านที่ 1 ให้กดที่ปุ่มดาว สีเขียว</p>
+                                <p>2. คุณไม่สามารถเข้าด่านที่ 2 หรือด่านที่ 3 ได้จนกว่าคะแนนด่านก่อนหน้าจะผ่าน 100%</p>
+                                <p>3. เมนูรูปมงกุฎบ่งบอกถึงระดับเลเวลรวมของคุณที่คุณผ่านด่านทั้งหมด</p>
+                                <p>4. แถบไฟบ่งบอกถึงประวัติการเข้าใช้งานต่อเนื่อง (Streak) ของคุณ</p>
+                                <p>5. เมนูรูปหัวใจแสดงจำนวนพลังชีวิตที่ยังเหลืออยู่ หากหมดจะยุติการเรียนด่านนั้นทันที</p>
+                                <p>6. หากคุณมีข้อสงสัยเพิ่มเติม สามารถไปตรวจสอบหรือแชทสอบถามพนักงานฝ่ายบริการได้ตลอดเวลาทำงาน</p>
+                            </div>
+
+                            <!-- Good UI Content -->
+                            <div class="duo-map" id="duo-map-container">
+                                <div class="duo-node active" id="duo-node-1" data-step="1">
+                                    <span class="duo-node-icon">⭐</span>
+                                    <div class="duo-node-label">ด่านที่ 1</div>
+                                </div>
+                                <div class="duo-node locked" id="duo-node-2" data-step="2">
+                                    <span class="duo-node-icon">🔒</span>
+                                    <div class="duo-node-label">ด่านที่ 2</div>
+                                </div>
+                                <div class="duo-node locked" id="duo-node-3" data-step="3">
+                                    <span class="duo-node-icon">🔒</span>
+                                    <div class="duo-node-label">ด่านที่ 3</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Duo Buttons -->
+                            <div class="duo-btn-container" id="duo-action-container">
+                                <button class="duo-btn-tour" id="duo-btn-start-tour">เริ่มไกด์สอนใช้งาน</button>
+                            </div>
+
+                            <!-- Onboarding Tooltip Element -->
+                            <div class="duo-tooltip-overlay hidden" id="duo-tooltip-container">
+                                <div class="duo-owl-character">🦉</div>
+                                <div class="duo-tooltip-bubble">
+                                    <div class="duo-tooltip-text" id="duo-tooltip-text">สวัสดีคร้าบ! กดปุ่มด่านที่ 1 เพื่อเริ่มเรียนบทเรียนแรกนะ!</div>
+                                    <div class="duo-tooltip-footer">
+                                        <span class="duo-tooltip-steps" id="duo-tooltip-step-num">1/3</span>
+                                        <button class="duo-tooltip-next-btn" id="duo-tooltip-next-btn">ถัดไป</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-screen-footer-indicator"></div>
+                        </div>
+                    </div>
+                    <!-- Standard Toggle -->
+                    <div class="mockup-ui-toggle" data-heuristic="duolingo">
+                        <button class="toggle-mode-btn active" data-mode="good">✅ แบบที่ดี (Good)</button>
+                        <button class="toggle-mode-btn" data-mode="bad">❌ แบบที่แย่ (Bad)</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Conclusion Section -->
+            <section id="conclusion" class="conclusion-section">
+                <div class="conclusion-header">
+                    <div class="conclusion-badge">Conclusion</div>
+                    <h2 class="conclusion-title">สรุป 10 Usability Heuristics</h2>
+                    <p class="conclusion-subtitle">กฎ 10 ข้อเพื่อการออกแบบที่ดีและใช้งานง่าย · Jakob Nielsen</p>
+                </div>
+
+                <div class="conclusion-intro">
+                    <strong>10 Usability Heuristics</strong> คือ กฎ 10 ข้อที่ <strong>Jakob Nielsen</strong> วางไว้เป็นมาตรฐานการออกแบบ UX/UI ระดับสากล
+                    ทุกข้อมีเป้าหมายเดียวกัน คือ <strong>ทำให้ผู้ใช้งานเข้าใจระบบได้ทันทีโดยไม่ต้องเดา</strong> ลดความผิดพลาด และสร้างประสบการณ์ที่ราบรื่น
+                </div>
+
+                <div class="conclusion-grid">
+                    <div class="con-card" style="--accent:#4f46e5;--accent-bg:#eef2ff">
+                        <div class="con-card-header"><div class="con-icon">💡</div><div><div class="con-num">Heuristic #1</div><div class="con-title-en">Visibility of System Status</div></div></div>
+                        <div class="con-title-th">การแสดงสถานะของระบบ</div>
+                        <div class="con-desc">ระบบต้องบอกผู้ใช้เสมอว่า "ตอนนี้กำลังทำอะไรอยู่" เช่น แถบโหลด, ข้อความยืนยัน, หรือไอคอนสถานะ</div>
+                        <span class="con-keyword">Feedback ทันที</span>
+                    </div>
+                    <div class="con-card" style="--accent:#0ea5e9;--accent-bg:#f0f9ff">
+                        <div class="con-card-header"><div class="con-icon">🌏</div><div><div class="con-num">Heuristic #2</div><div class="con-title-en">Match System &amp; Real World</div></div></div>
+                        <div class="con-title-th">สอดคล้องกับโลกความเป็นจริง</div>
+                        <div class="con-desc">ใช้ภาษา ไอคอน และแนวคิดที่ผู้ใช้คุ้นเคยในชีวิตประจำวัน อย่าใช้ศัพท์เทคนิคที่ไม่จำเป็น</div>
+                        <span class="con-keyword">ภาษาของผู้ใช้</span>
+                    </div>
+                    <div class="con-card" style="--accent:#10b981;--accent-bg:#ecfdf5">
+                        <div class="con-card-header"><div class="con-icon">🚪</div><div><div class="con-num">Heuristic #3</div><div class="con-title-en">User Control &amp; Freedom</div></div></div>
+                        <div class="con-title-th">อิสระในการควบคุมของผู้ใช้</div>
+                        <div class="con-desc">ต้องมีทางออกที่ชัดเจนเสมอ เช่น ปุ่ม Undo/Redo หรือยกเลิกการกระทำ เพื่อให้ผู้ใช้รู้สึกปลอดภัย</div>
+                        <span class="con-keyword">Undo &amp; Cancel</span>
+                    </div>
+                    <div class="con-card" style="--accent:#f59e0b;--accent-bg:#fffbeb">
+                        <div class="con-card-header"><div class="con-icon">🔗</div><div><div class="con-num">Heuristic #4</div><div class="con-title-en">Consistency &amp; Standards</div></div></div>
+                        <div class="con-title-th">ความสม่ำเสมอและมาตรฐาน</div>
+                        <div class="con-desc">ใช้รูปแบบ สีสัน และคำที่สม่ำเสมอ ตรงตามมาตรฐาน Platform เพื่อไม่ให้ผู้ใช้ต้องคาดเดาความหมาย</div>
+                        <span class="con-keyword">Platform Standard</span>
+                    </div>
+                    <div class="con-card" style="--accent:#ef4444;--accent-bg:#fef2f2">
+                        <div class="con-card-header"><div class="con-icon">🛡️</div><div><div class="con-num">Heuristic #5</div><div class="con-title-en">Error Prevention</div></div></div>
+                        <div class="con-title-th">การป้องกันความผิดพลาด</div>
+                        <div class="con-desc">ออกแบบให้ผิดพลาดได้ยากตั้งแต่แรก เช่น แจ้งเตือนขณะพิมพ์ และ Disable ปุ่มที่ยังใช้ไม่ได้</div>
+                        <span class="con-keyword">ป้องกันก่อน</span>
+                    </div>
+                    <div class="con-card" style="--accent:#8b5cf6;--accent-bg:#f5f3ff">
+                        <div class="con-card-header"><div class="con-icon">👁️</div><div><div class="con-num">Heuristic #6</div><div class="con-title-en">Recognition rather than Recall</div></div></div>
+                        <div class="con-title-th">จำโดยเห็น ไม่ใช่จำจากความจำ</div>
+                        <div class="con-desc">แสดงตัวเลือก ประวัติ หรือคำแนะนำให้เห็นชัดเจน ผู้ใช้ไม่ควรต้องท่องจำขั้นตอนการใช้งาน</div>
+                        <span class="con-keyword">Visible Options</span>
+                    </div>
+                    <div class="con-card" style="--accent:#06b6d4;--accent-bg:#ecfeff">
+                        <div class="con-card-header"><div class="con-icon">⚡</div><div><div class="con-num">Heuristic #7</div><div class="con-title-en">Flexibility &amp; Efficiency of Use</div></div></div>
+                        <div class="con-title-th">ความยืดหยุ่นและประสิทธิภาพ</div>
+                        <div class="con-desc">มีทางลัดสำหรับผู้ใช้ขั้นสูง และขั้นตอนชัดเจนสำหรับผู้ใหม่ รองรับได้ทั้งสองกลุ่มในแอปเดียว</div>
+                        <span class="con-keyword">Shortcut &amp; Flow</span>
+                    </div>
+                    <div class="con-card" style="--accent:#ec4899;--accent-bg:#fdf2f8">
+                        <div class="con-card-header"><div class="con-icon">🎨</div><div><div class="con-num">Heuristic #8</div><div class="con-title-en">Aesthetic &amp; Minimalist Design</div></div></div>
+                        <div class="con-title-th">ดีไซน์สะอาดและเรียบง่าย</div>
+                        <div class="con-desc">แสดงเฉพาะข้อมูลที่จำเป็น ดีไซน์ที่รก ข้อมูลเยอะ ทำให้ผู้ใช้สับสนและตัดสินใจช้าลง</div>
+                        <span class="con-keyword">Less is More</span>
+                    </div>
+                    <div class="con-card" style="--accent:#f97316;--accent-bg:#fff7ed">
+                        <div class="con-card-header"><div class="con-icon">🔧</div><div><div class="con-num">Heuristic #9</div><div class="con-title-en">Help Users Diagnose &amp; Recover</div></div></div>
+                        <div class="con-title-th">ช่วยวินิจฉัยและแก้ปัญหา</div>
+                        <div class="con-desc">เมื่อเกิดข้อผิดพลาด ต้องบอกเป็นภาษาคนว่าเกิดอะไรขึ้น และแนะนำวิธีแก้ไขอย่างชัดเจน</div>
+                        <span class="con-keyword">แก้ไขได้ทันที</span>
+                    </div>
+                    <div class="con-card" style="--accent:#14b8a6;--accent-bg:#f0fdfa">
+                        <div class="con-card-header"><div class="con-icon">📖</div><div><div class="con-num">Heuristic #10</div><div class="con-title-en">Help &amp; Documentation</div></div></div>
+                        <div class="con-title-th">คู่มือและเอกสารช่วยเหลือ</div>
+                        <div class="con-desc">แม้จะออกแบบดีแล้ว ก็ต้องมีไกด์ช่วยเหลือที่ค้นหาง่าย กระชับ และตอบคำถามได้จริง</div>
+                        <span class="con-keyword">Easy Help</span>
+                    </div>
+                </div>
+
+                <div class="conclusion-takeaway">
+                    <div class="takeaway-label">🎯 Core Takeaway — จำสั้น ๆ แค่นี้</div>
+                    <ul class="takeaway-list">
+                        <li>แจ้งสถานะให้ผู้ใช้รู้อยู่เสมอ</li>
+                        <li>ใช้ภาษาที่ผู้ใช้เข้าใจ ไม่ใช่ภาษา Dev</li>
+                        <li>มีทางออกเสมอ อย่าดักผู้ใช้ให้ติดกับ</li>
+                        <li>สม่ำเสมอทั้ง UI ตั้งแต่ต้นจนจบ</li>
+                        <li>ป้องกันก่อน ดีกว่าแก้ทีหลัง</li>
+                        <li>แสดงตัวเลือก ไม่ให้ผู้ใช้ต้องท่องจำ</li>
+                        <li>รองรับทั้งผู้ใหม่และผู้เชี่ยวชาญ</li>
+                        <li>ดีไซน์เรียบ มีเฉพาะสิ่งจำเป็น</li>
+                        <li>Error ต้องบอกเหตุ + วิธีแก้เสมอ</li>
+                        <li>Help ต้องหาง่าย ตอบได้จริง</li>
+                    </ul>
+                </div>
+
+                <div class="conclusion-ref">
+                    อ้างอิง: <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank">Jakob Nielsen · Nielsen Norman Group (NN/g)</a>
+                </div>
+            </section>
+
+            <!-- Global Footer -->
+            <footer class="global-footer">
+                <p><strong>10 Usability Heuristics for User Interface Design</strong> โดย Jakob Nielsen</p>
+                <p>เปรียบเทียบ Good UI และ Bad UI สำหรับการออกแบบในชีวิตจริง 💻✨</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Javascript links -->
+    <script src="js/mockups.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

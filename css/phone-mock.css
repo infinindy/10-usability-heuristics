@@ -1,0 +1,116 @@
+/* phone-mock.css - High Fidelity Phone Frame Mockup */
+
+.phone-frame {
+    width: 320px;
+    height: 640px;
+    background-color: #0f172a; /* Device frame border color */
+    border: 12px solid #0f172a;
+    border-radius: 40px;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 4px rgba(15, 23, 42, 0.1),
+        inset 0 4px 6px rgba(255, 255, 255, 0.15),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+/* Screen container - clip everything inside */
+.phone-screen {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    padding-top: 30px; /* Space for status bar & notch */
+}
+
+/* Phone Notch / Dynamic Island style */
+.phone-notch {
+    width: 110px;
+    height: 24px;
+    background-color: #0f172a;
+    border-radius: 0 0 16px 16px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    pointer-events: none;
+}
+
+.phone-notch::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #1e293b;
+    border-radius: 50%;
+    position: absolute;
+    right: 25px;
+    top: 8px;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Simulated Status Bar (Time, Wifi, Battery) */
+.phone-screen::before {
+    content: "09:41";
+    font-size: 11px;
+    font-weight: 600;
+    color: #0f172a;
+    position: absolute;
+    top: 5px;
+    left: 24px;
+    z-index: 99;
+}
+
+/* We can append other indicators to the top right */
+.phone-screen::after {
+    content: "🛜 🔋";
+    font-size: 9px;
+    position: absolute;
+    top: 6px;
+    right: 24px;
+    z-index: 99;
+    letter-spacing: 2px;
+}
+
+/* Hide wifi icon when wifi is turned off */
+.phone-screen.wifi-off::after {
+    content: "🔋";
+}
+
+/* For dark screens, status indicators should change color */
+.phone-screen.dark-status::before {
+    color: #ffffff;
+}
+.phone-screen.dark-status::after {
+    filter: invert(1);
+}
+
+/* Bottom Swipe Home Indicator */
+.phone-screen-footer-indicator {
+    width: 115px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 100px;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+.phone-screen.dark-status .phone-screen-footer-indicator {
+    background-color: rgba(255, 255, 255, 0.35);
+}
