@@ -33,12 +33,18 @@
     scroll-behavior: smooth;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: var(--font-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Scroll Progress Bar */
@@ -110,6 +116,7 @@ body {
 .sidebar-nav {
     flex-grow: 1;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Custom Scrollbar for Sidebar */
@@ -449,35 +456,55 @@ body {
 
     .sidebar {
         width: 100%;
-        position: relative;
+        position: sticky;
+        top: 0;
         height: auto;
-        padding: 1.5rem;
+        max-height: none;
+        padding: 0.85rem 1rem;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
+        z-index: 200;
+        overflow: visible;
     }
 
     .sidebar-logo {
-        margin-bottom: 1rem;
+        display: none;
     }
 
     .sidebar-nav {
         margin-bottom: 0;
+        overflow: visible;
     }
 
     .sidebar-nav ul {
         display: flex;
         overflow-x: auto;
-        gap: 0.5rem;
-        padding-bottom: 0.5rem;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.4rem;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
     }
 
     .sidebar-nav ul::-webkit-scrollbar {
-        height: 4px;
+        height: 3px;
+    }
+    .sidebar-nav ul::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 4px;
     }
 
     .nav-item {
+        flex-shrink: 0;
         margin-bottom: 0;
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.85rem;
+        font-size: 0.75rem;
+        scroll-snap-align: start;
+        white-space: nowrap;
+    }
+
+    .nav-divider {
+        display: none;
     }
 
     .sidebar-footer {
@@ -507,15 +534,36 @@ body {
 
 @media (max-width: 640px) {
     .hero-title {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
-    
+
+    .hero-section {
+        min-height: 60vh;
+        padding: 3rem 1.25rem;
+    }
+
     .do-dont-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .info-panel {
-        padding: 3rem 1.5rem;
+        padding: 2.5rem 1.25rem;
+    }
+
+    .mockup-panel {
+        padding: 2rem 1.25rem;
+    }
+
+    .conclusion-section {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .conclusion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .takeaway-list {
+        grid-template-columns: 1fr;
     }
 }
 
